@@ -31,6 +31,8 @@ Before running this Terraform script, make sure you have:
 
 #### **Step 1: Clone the repository**
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
+git clone https://github.com/PajaspaceNet/EKS_cluster_AWS_via_Terraform.git
+cd EKS_cluster_AWS_via_Terraform
+
+###  NEXT ToDo...
 
