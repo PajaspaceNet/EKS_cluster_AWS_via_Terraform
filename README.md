@@ -33,6 +33,45 @@ Before running this Terraform script, make sure you have:
 ```bash
 git clone https://github.com/PajaspaceNet/EKS_cluster_AWS_via_Terraform.git
 cd EKS_cluster_AWS_via_Terraform
+```
+---
+3️⃣ Connect to EKS Cluster
+
+Once deployment is complete, update your Kubernetes config:
+```
+aws eks update-kubeconfig --region eu-central-1 --name test-eks-cluster
+
+Verify nodes are running:
+
+kubectl get nodes
+```
+
+4️⃣ Deploy an Apache Web Server
+Step 1: Apply Kubernetes Deployment
+```
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+```
+Step 2: Get the Public IP
+```
+kubectl get svc apache-service
+```
+Copy the EXTERNAL-IP and open it in your browser:
+```
+http://<EXTERNAL-IP>
+```
+🎉 You should see the Apache web server running!
+
+
+ ## How to Destroy Everything
+
+To delete the entire AWS infrastructure, run:
+
+```
+terraform destroy
+```
+This will remove the EKS cluster, EC2 instances, and networking to avoid any charges.
+
 
 ###  NEXT ToDo...
 
