@@ -72,6 +72,19 @@ terraform destroy
 ```
 This will remove the EKS cluster, EC2 instances, and networking to avoid any charges.
 
+ ## Author & Contributions
+
+    👨‍💻 Created by Pavel
+    🛠 Open-source contributions are welcome! Feel free to fork & improve.
+
+🔹 If you like this project, don’t forget to ⭐ it on GitHub! 
+
 
 ###  NEXT ToDo...
+
+🔥 Future Improvements
+
+📌 Add CI/CD pipeline for automatic deployments
+📌 Implement Ingress with HTTPS (Let’s Encrypt)
+📌 Deploy a real application instead of Apache
 
