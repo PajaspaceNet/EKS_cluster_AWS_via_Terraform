@@ -87,4 +87,5 @@ This will remove the EKS cluster, EC2 instances, and networking to avoid any cha
 📌 Add CI/CD pipeline for automatic deployments
 📌 Implement Ingress with HTTPS (Let’s Encrypt)
 📌 Deploy a real application instead of Apache
+📌 Deploy custome side 
 
