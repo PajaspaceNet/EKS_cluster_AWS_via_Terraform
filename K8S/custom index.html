@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-custom-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: apache
+  template:
+    metadata:
+      labels:
+        app: apache
+    spec:
+      containers:
+      - name: apache
+        image: httpd:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: web-content
+          mountPath: /usr/local/apache2/htdocs/
+      volumes:
+      - name: web-content
+        configMap:
+          name: apache-index
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: apache-index
+data:
+  index.html: |
+    <html>
+    <head><title>Welcome to My Custom Apache!</title></head>
+    <body><h1>Hello from Kubernetes Apache!</h1></body>
+    </html>
