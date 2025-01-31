@@ -83,7 +83,7 @@ To ensure absolute peace of mind, I highly recommend performing the following ma
 ~ $ aws eks list-clusters
 
 ```
-
+Should be:
 ```
 {
     "clusters": []
@@ -94,12 +94,16 @@ To ensure absolute peace of mind, I highly recommend performing the following ma
 ```
 ~ $ aws ec2 describe-instances --query "Reservations[*].Instances[*].InstanceId"
 ```
+Should be:
 ```
 []
 ```
 **Check if all clusters every loadbalancers off**
 ```
 ~ $ aws elbv2 describe-load-balancers
+```
+Should be:
+```
 {
     "LoadBalancers": []
 }
@@ -108,6 +112,7 @@ To ensure absolute peace of mind, I highly recommend performing the following ma
 ```
 ~ $ aws ec2 describe-volumes --query "Volumes[*].VolumeId"
 ```
+Should be:
 ```
 []
 ```
