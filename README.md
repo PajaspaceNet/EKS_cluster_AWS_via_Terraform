@@ -72,6 +72,46 @@ terraform destroy
 ```
 This will remove the EKS cluster, EC2 instances, and networking to avoid any charges.
 
+# What I Strongly Recommend You Do (Even After Running terraform destroy)
+
+Even after running terraform destroy, AWS may still charge you additional costs for some services. These charges can appear later, sometimes the next day, due to AWS’s billing cycle and delayed cost processing.
+
+To ensure absolute peace of mind, I highly recommend performing the following manual checks to verify that all resources have been properly deleted. This will guarantee that no unexpected charges occur.
+
+**Check if all clusters are off**
+```
+~ $ aws eks list-clusters
+
+```
+
+```
+{
+    "clusters": []
+}
+```
+
+**Check if all clusters every querry are off**
+```
+~ $ aws ec2 describe-instances --query "Reservations[*].Instances[*].InstanceId"
+```
+```
+[]
+```
+**Check if all clusters every loadbalancers off**
+```
+~ $ aws elbv2 describe-load-balancers
+{
+    "LoadBalancers": []
+}
+```
+**Check if all clusters every volues are off**
+```
+~ $ aws ec2 describe-volumes --query "Volumes[*].VolumeId"
+```
+```
+[]
+```
+
  ## Author & Contributions
 
     👨‍💻 Created by Pavel
